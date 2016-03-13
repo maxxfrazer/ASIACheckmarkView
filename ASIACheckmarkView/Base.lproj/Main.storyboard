@@ -96,7 +96,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="changeState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PAT-41-ua9"/>
+                                            <action selector="changeStateWithSpinning:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tOQ-xU-ZgQ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optional &quot;spinning&quot; state - wait for API response or anything" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-bH-KVc">
@@ -167,7 +167,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="changeState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGw-ch-BaN"/>
+                                            <action selector="changeStateWithSpinning:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkd-YT-t78"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBInspectable and IBDesignable - set all parameters in storyboard inspector" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5L2-ct-ifj">
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="429"/>
+            <point key="canvasLocation" x="865" y="326"/>
         </scene>
     </scenes>
 </document>

@@ -14,6 +14,11 @@ class ViewController: UIViewController {
 
     
     @IBAction func changeState(sender: ASIACheckmarkView) {
+        sender.animateTo(!sender.boolValue)
+    }
+
+    
+    @IBAction func changeStateWithSpinning(sender: ASIACheckmarkView) {
         if !sender.isSpinning {
             sender.animateTo(!sender.boolValue)
             sender.isSpinning = true
@@ -21,7 +26,6 @@ class ViewController: UIViewController {
         else {
             sender.isSpinning = false
         }
-        
     }
     
 
