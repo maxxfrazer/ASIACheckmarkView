@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ASIACheckmarkView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,214 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHj-jQ-VkW">
+                                <rect key="frame" x="172" y="60" width="257" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qln-bY-ZHe" userLabel="Checkmark" customClass="ASIACheckmarkView" customModule="ASIACheckmarkView" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="nSa-qv-8cr"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isGood" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSpinning" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rectFill">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pk6-W3-G59"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animated state change" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPr-ki-X4P">
+                                        <rect key="frame" x="90" y="20" width="159" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="159" id="Amn-Ua-zh0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="centerY" secondItem="bHj-jQ-VkW" secondAttribute="centerY" id="1Ae-54-k0l"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="1t7-fY-dc3"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="9aC-DS-g0x"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="trailing" secondItem="bHj-jQ-VkW" secondAttribute="trailingMargin" id="9ev-w4-3Hv"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="leading" secondItem="bHj-jQ-VkW" secondAttribute="leading" constant="20" id="Amd-kB-RD2"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="BXr-ev-HHT"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="bottom" secondItem="CPr-ki-X4P" secondAttribute="bottom" id="EqR-VR-pFy"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="leading" secondItem="bHj-jQ-VkW" secondAttribute="leading" constant="90" id="Oqn-mc-Dlb"/>
+                                    <constraint firstAttribute="bottom" secondItem="CPr-ki-X4P" secondAttribute="bottom" constant="20" id="QUQ-Zr-42x"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="leading" secondItem="bHj-jQ-VkW" secondAttribute="leading" constant="20" id="RJI-ju-nRh"/>
+                                    <constraint firstAttribute="trailing" secondItem="CPr-ki-X4P" secondAttribute="trailing" constant="8" id="T43-h4-96V"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="centerY" secondItem="bHj-jQ-VkW" secondAttribute="centerY" id="WBP-be-D9Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qln-bY-ZHe" secondAttribute="bottom" constant="20" id="WaF-GP-ms0"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="leading" secondItem="Qln-bY-ZHe" secondAttribute="trailing" constant="8" id="bHb-aw-5eF"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="brd-WD-eA9"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="c5B-rU-z4d"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="centerY" secondItem="Qln-bY-ZHe" secondAttribute="centerY" id="cET-JZ-fNf"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="leading" secondItem="bHj-jQ-VkW" secondAttribute="leading" constant="20" id="f4h-MO-oqw"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="leading" secondItem="bHj-jQ-VkW" secondAttribute="leading" constant="90" id="fGe-7p-jnq"/>
+                                    <constraint firstItem="Qln-bY-ZHe" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="top" constant="20" id="i56-X9-NFa"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="top" secondItem="Qln-bY-ZHe" secondAttribute="top" id="pXk-Zo-C45"/>
+                                    <constraint firstItem="CPr-ki-X4P" firstAttribute="leading" secondItem="Qln-bY-ZHe" secondAttribute="trailing" constant="8" symbolic="YES" id="qC4-0d-vdA"/>
+                                    <constraint firstAttribute="width" constant="257" id="uTD-kL-JXC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-VT-v7L">
+                                <rect key="frame" x="172" y="170" width="257" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9H-KJ-yPs" userLabel="Checkmark" customClass="ASIACheckmarkView" customModule="ASIACheckmarkView" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="cfh-Fo-In4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isGood" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSpinning" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rectFill">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PAT-41-ua9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optional &quot;spinning&quot; state - wait for API response or anything" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-bH-KVc">
+                                        <rect key="frame" x="90" y="20" width="159" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="159" id="hsM-rG-9dK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cdA-bH-KVc" secondAttribute="bottom" constant="20" id="1e8-As-zRg"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="leading" secondItem="E2S-VT-v7L" secondAttribute="leading" constant="90" id="3vt-eN-13Q"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="centerY" secondItem="E2S-VT-v7L" secondAttribute="centerY" id="7ML-Bu-4AQ"/>
+                                    <constraint firstAttribute="width" constant="257" id="ApN-mD-7gH"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="leading" secondItem="F9H-KJ-yPs" secondAttribute="trailing" constant="8" symbolic="YES" id="Fk4-ER-3qo"/>
+                                    <constraint firstAttribute="bottom" secondItem="F9H-KJ-yPs" secondAttribute="bottom" constant="20" id="J8R-c3-j3x"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="LxK-ta-9SV"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="trailing" secondItem="E2S-VT-v7L" secondAttribute="trailingMargin" id="OsF-G8-xFJ"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="leading" secondItem="E2S-VT-v7L" secondAttribute="leading" constant="20" id="Ow6-p2-dS0"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="RLO-sq-Oas"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="bottom" secondItem="cdA-bH-KVc" secondAttribute="bottom" id="SWV-Ni-trF"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="leading" secondItem="E2S-VT-v7L" secondAttribute="leading" constant="90" id="VkV-b7-wS0"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="WaQ-yf-Mkp"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="Xax-g4-olT"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="top" secondItem="F9H-KJ-yPs" secondAttribute="top" id="YOO-VT-29Z"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="aPi-UA-kGL"/>
+                                    <constraint firstAttribute="trailing" secondItem="cdA-bH-KVc" secondAttribute="trailing" constant="8" id="hF7-D4-ewa"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="leading" secondItem="F9H-KJ-yPs" secondAttribute="trailing" constant="8" id="jbw-7i-low"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="top" constant="20" id="rXb-Bw-O9h"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="leading" secondItem="E2S-VT-v7L" secondAttribute="leading" constant="20" id="sAJ-4e-7Kv"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="centerY" secondItem="E2S-VT-v7L" secondAttribute="centerY" id="sYQ-Rd-Ggr"/>
+                                    <constraint firstItem="cdA-bH-KVc" firstAttribute="centerY" secondItem="F9H-KJ-yPs" secondAttribute="centerY" id="uhQ-YH-ShB"/>
+                                    <constraint firstItem="F9H-KJ-yPs" firstAttribute="leading" secondItem="E2S-VT-v7L" secondAttribute="leading" constant="20" id="w5U-3w-7vy"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZV-D1-gaa">
+                                <rect key="frame" x="172" y="280" width="257" height="102"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBH-eB-ig7" userLabel="Checkmark" customClass="ASIACheckmarkView" customModule="ASIACheckmarkView" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="uba-CJ-DQy"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSpinning" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rectFill">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="checkmarkFill">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="crossFill">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColorForFalse">
+                                                <color key="value" red="0.99185281989999996" green="0.5931509733" blue="0.25144958499999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isGood" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColorForTrue">
+                                                <color key="value" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGw-ch-BaN"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBInspectable and IBDesignable - set all parameters in storyboard inspector" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5L2-ct-ifj">
+                                        <rect key="frame" x="90" y="20" width="159" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="159" id="mzl-Ze-NJy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="257" id="14G-v0-PWb"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="4B5-Ib-NEj"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="4h6-Yy-u2P"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="AER-np-4Il"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="trailing" secondItem="AZV-D1-gaa" secondAttribute="trailingMargin" id="AoH-rG-qwj"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="leading" secondItem="AZV-D1-gaa" secondAttribute="leading" constant="20" id="BOf-cj-q50"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="centerY" secondItem="AZV-D1-gaa" secondAttribute="centerY" id="ECV-TJ-WcY"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="bottom" secondItem="5L2-ct-ifj" secondAttribute="bottom" id="JWJ-4d-BJ4"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="leading" secondItem="yBH-eB-ig7" secondAttribute="trailing" constant="8" id="LSE-AD-Gd3"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="LcA-pa-JRz"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="top" secondItem="yBH-eB-ig7" secondAttribute="top" id="Qop-Ze-ZEp"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="leading" secondItem="yBH-eB-ig7" secondAttribute="trailing" constant="8" symbolic="YES" id="Va9-Ga-K4F"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="centerY" secondItem="yBH-eB-ig7" secondAttribute="centerY" id="XSf-KN-LSX"/>
+                                    <constraint firstAttribute="bottom" secondItem="yBH-eB-ig7" secondAttribute="bottom" constant="20" id="aPI-Jy-hNB"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="dGb-up-FzG"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="leading" secondItem="AZV-D1-gaa" secondAttribute="leading" constant="20" id="fcK-jo-Jdu"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="top" secondItem="AZV-D1-gaa" secondAttribute="top" constant="20" id="fi0-hG-HSI"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="leading" secondItem="AZV-D1-gaa" secondAttribute="leading" constant="20" id="gyj-gS-Rff"/>
+                                    <constraint firstItem="yBH-eB-ig7" firstAttribute="centerY" secondItem="AZV-D1-gaa" secondAttribute="centerY" id="heB-bt-YwW"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="leading" secondItem="AZV-D1-gaa" secondAttribute="leading" constant="90" id="iCU-DK-OGb"/>
+                                    <constraint firstItem="5L2-ct-ifj" firstAttribute="leading" secondItem="AZV-D1-gaa" secondAttribute="leading" constant="90" id="lfL-JJ-tu0"/>
+                                    <constraint firstAttribute="trailing" secondItem="5L2-ct-ifj" secondAttribute="trailing" constant="8" id="sEn-bY-2EH"/>
+                                    <constraint firstAttribute="bottom" secondItem="5L2-ct-ifj" secondAttribute="bottom" constant="20" id="uV0-LP-rWr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E2S-VT-v7L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="99B-bn-g5X"/>
+                            <constraint firstItem="E2S-VT-v7L" firstAttribute="top" secondItem="bHj-jQ-VkW" secondAttribute="bottom" constant="8" id="LRQ-fv-JlA"/>
+                            <constraint firstItem="AZV-D1-gaa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WmL-RJ-ItX"/>
+                            <constraint firstItem="AZV-D1-gaa" firstAttribute="top" secondItem="E2S-VT-v7L" secondAttribute="bottom" constant="8" id="XWm-Nk-MnR"/>
+                            <constraint firstItem="bHj-jQ-VkW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="gJ6-0q-nEX"/>
+                            <constraint firstItem="bHj-jQ-VkW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="paq-Ya-MYj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkmark" destination="Qln-bY-ZHe" id="u9t-Dw-NDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="429"/>
         </scene>
     </scenes>
 </document>

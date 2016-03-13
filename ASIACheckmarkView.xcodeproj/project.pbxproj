@@ -12,6 +12,7 @@
 		FEF6D5FF1C9578D80029EA6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF6D5FD1C9578D80029EA6F /* Main.storyboard */; };
 		FEF6D6011C9578D80029EA6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF6D6001C9578D80029EA6F /* Assets.xcassets */; };
 		FEF6D6041C9578D80029EA6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF6D6021C9578D80029EA6F /* LaunchScreen.storyboard */; };
+		FEF6D60F1C95793A0029EA6F /* ASIACheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF6D60E1C95793A0029EA6F /* ASIACheckmarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FEF6D6001C9578D80029EA6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEF6D6031C9578D80029EA6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEF6D6051C9578D80029EA6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEF6D60E1C95793A0029EA6F /* ASIACheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASIACheckmarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		FEF6D5F81C9578D70029EA6F /* ASIACheckmarkView */ = {
 			isa = PBXGroup;
 			children = (
+				FEF6D60D1C95791C0029EA6F /* Sources */,
 				FEF6D5F91C9578D80029EA6F /* AppDelegate.swift */,
 				FEF6D5FB1C9578D80029EA6F /* ViewController.swift */,
 				FEF6D5FD1C9578D80029EA6F /* Main.storyboard */,
@@ -63,6 +66,14 @@
 			);
 			path = ASIACheckmarkView;
 			sourceTree = "<group>";
+		};
+		FEF6D60D1C95791C0029EA6F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FEF6D60E1C95793A0029EA6F /* ASIACheckmarkView.swift */,
+			);
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -96,6 +107,7 @@
 				TargetAttributes = {
 					FEF6D5F51C9578D70029EA6F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 4RH8T97BYZ;
 					};
 				};
 			};
@@ -135,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF6D60F1C95793A0029EA6F /* ASIACheckmarkView.swift in Sources */,
 				FEF6D5FC1C9578D80029EA6F /* ViewController.swift in Sources */,
 				FEF6D5FA1C9578D80029EA6F /* AppDelegate.swift in Sources */,
 			);
@@ -249,9 +262,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ASIACheckmarkView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amichnia.ASIACheckmarkView.ASIACheckmarkView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amichnia.ASIACheckmarkView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -260,9 +275,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ASIACheckmarkView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amichnia.ASIACheckmarkView.ASIACheckmarkView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amichnia.ASIACheckmarkView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
