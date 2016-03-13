@@ -5,7 +5,7 @@ Customizable checkmark button view. Allows to easily animate between states, wit
 
 ## Screenshots:
 
-![Custom style Screenshot](Screenshots/ASIACheckmarkView.gif)
+![Custom style Screenshot](https://github.com/amichnia/ASIACheckmarkView/raw/master/Screenshots/ASIACheckmarkView.gif)
 
 # Usage
 
@@ -13,7 +13,7 @@ Add button on storyboard, set its class to __*ASIACheckmarkView*__. Check the at
 
 Note, that spinning animation does not work in storyboard IBDesignable.
 
-![Custom style Screenshot](Screenshots/Storyboard.png)
+![Custom style Screenshot](https://github.com/amichnia/ASIACheckmarkView/raw/master/Screenshots/Storyboard.png)
 
 ### Code
 

@@ -15,12 +15,19 @@ class ASIACheckmarkView: UIButton {
     @IBInspectable var lineColorForTrue : UIColor = UIColor.greenColor()
     @IBInspectable var lineColorForFalse : UIColor = UIColor.redColor()
     @IBInspectable var lineWidth : CGFloat = 1
+    /// CHeckmark fill, where 0 is no checkmark, and 1 is checkmark connected with surrounding circle
     @IBInspectable var checkmarkFill : CGFloat = 0.8
+    /// Fill of rect for false value - 0 means no rect, 1 means cross out of circle bounds
     @IBInspectable var crossFill : CGFloat = 0.4
+    /// Fill of the whole button rect - if 1, will try to cover whole area (cropped to center square).
     @IBInspectable var rectFill : CGFloat = 0.5
     
     @IBInspectable var isGood : Bool = true
+    
+    /// Determines if animation should pause and wait on "spinning" state
     @IBInspectable var isSpinning : Bool = false
+    
+    /// How much circle percentage should spinner take in <0:1>
     @IBInspectable var spinnerPercentage : CGFloat = 0.25
     
     @IBInspectable var animationTotalTime : NSTimeInterval = 0.5
@@ -52,6 +59,12 @@ class ASIACheckmarkView: UIButton {
     
     // MARK: - Action
     
+    /**
+    Changes desired state (boolValue) to given state. If checkmark is not spinning - animates to spinner, and then to final state (only if state changed). If you set isSpinning, after calling this method, checkmark will wait on spinning state, until you set isSpinning to false.
+    
+    - parameter value:      New state
+    - parameter completion: Called after whole animation is finished - new state is determined
+    */
     func animateTo(value: Bool, withCompletion completion:ASIACompletion? = nil){
         animateMarkGood(value, completion: completion)
     }
