@@ -9,38 +9,38 @@
 import UIKit
 
 @IBDesignable
-class ASIACheckmarkView: UIButton {
+public class ASIACheckmarkView: UIButton {
     
     // MARK: - Inspectable Configuration
-    @IBInspectable var lineColorForTrue : UIColor = UIColor.greenColor()
-    @IBInspectable var lineColorForFalse : UIColor = UIColor.redColor()
-    @IBInspectable var lineWidth : CGFloat = 1
+    @IBInspectable public var lineColorForTrue : UIColor = UIColor.greenColor()
+    @IBInspectable public var lineColorForFalse : UIColor = UIColor.redColor()
+    @IBInspectable public var lineWidth : CGFloat = 1
     /// CHeckmark fill, where 0 is no checkmark, and 1 is checkmark connected with surrounding circle
-    @IBInspectable var checkmarkFill : CGFloat = 0.8
+    @IBInspectable public var checkmarkFill : CGFloat = 0.8
     /// Fill of rect for false value - 0 means no rect, 1 means cross out of circle bounds
-    @IBInspectable var crossFill : CGFloat = 0.4
+    @IBInspectable public var crossFill : CGFloat = 0.4
     /// Fill of the whole button rect - if 1, will try to cover whole area (cropped to center square).
-    @IBInspectable var rectFill : CGFloat = 0.5
+    @IBInspectable public var rectFill : CGFloat = 0.5
     
-    @IBInspectable var isGood : Bool = true
+    @IBInspectable public var isGood : Bool = true
     
     /// Determines if animation should pause and wait on "spinning" state
-    @IBInspectable var isSpinning : Bool = false
+    @IBInspectable public var isSpinning : Bool = false
     
     /// How much circle percentage should spinner take in <0:1>
-    @IBInspectable var spinnerPercentage : CGFloat = 0.25
+    @IBInspectable public var spinnerPercentage : CGFloat = 0.25
     
-    @IBInspectable var animationTotalTime : NSTimeInterval = 0.5
-    @IBInspectable var spinningFullDuration : CFTimeInterval = 0.8
+    @IBInspectable public var animationTotalTime : NSTimeInterval = 0.5
+    @IBInspectable public var spinningFullDuration : CFTimeInterval = 0.8
     
     // MARK: - Public properties
-    var boolValue : Bool { return self.isGood }
-    var isAnimating : Bool { return self.animating }
+    public var boolValue : Bool { return self.isGood }
+    public var isAnimating : Bool { return self.animating }
     
-    typealias ASIACompletion = ()->()
+    public typealias ASIACompletion = ()->()
     
     // MARK: - Private properties
-    var endAnimationCLosure : ASIACompletion?
+    public var endAnimationCLosure : ASIACompletion?
     
     private var checkmarkGoodLayer : CAShapeLayer?
     private var checkmarkBadLayers = [CAShapeLayer]()
@@ -65,7 +65,7 @@ class ASIACheckmarkView: UIButton {
     - parameter value:      New state
     - parameter completion: Called after whole animation is finished - new state is determined
     */
-    func animateTo(value: Bool, withCompletion completion:ASIACompletion? = nil){
+    public func animateTo(value: Bool, withCompletion completion:ASIACompletion? = nil){
         animateMarkGood(value, completion: completion)
     }
     
@@ -293,13 +293,13 @@ class ASIACheckmarkView: UIButton {
     
     // MARK: - Lifecycle
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         self.addLayersIfNeeded()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         self.addLayersIfNeeded()
     }
@@ -412,7 +412,7 @@ class ASIACheckmarkView: UIButton {
     
     // MARK: - Custom drawing
     
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         self.addLayersIfNeeded()
     }
