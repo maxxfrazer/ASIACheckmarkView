@@ -1,7 +1,7 @@
 ASIACheckmarkView
 ======================
 
-Customizable checkmark button view. Allows to easily animate between states, with optional intermediate "Spinning" state - if you want to beautifully morph betweeen two states, but need to wait for API in between. Clean and moder look, along with being easy-to-use.
+Customizable checkmark button view. Allows to easily animate between states, with optional intermediate "Spinning" state - if you want to beautifully morph betweeen two states, but need to wait for API in between. Clean and moder look, along with being easy-to-use. Support Swift 3.0.1.
 
 ## Screenshots:
 
@@ -25,7 +25,7 @@ let checkmark: ASIACheckmarkView
 
 func changeState() {
 		let newValue = !checkmark.boolValue // boolValue describes current checkmark state
-		checkmark.animateTo(newValue) // animate to state you want
+		checkmark.animate(checked: newValue) // animate to state you want
 }
 
 func changeStateWithCompletion() {
@@ -37,12 +37,12 @@ func changeStateWithCompletion() {
 
 @IBAction func changeStateWithSpinner() {
 		let newValue = !checkmark.boolValue
-		checkmark.animateTo(newValue) 	// animate to state you want
+		checkmark.animate(checked: newValue) 	// animate to state you want
 		checkmark.isSpinning = true       // PLACE THIS AFTER ANIMATE TO CALL!
 }
 
 func endSpinning() {
-		// OPTIONAL - You might call "checkmark.animateTo(some_value)" here
+		// OPTIONAL - You might call "checkmark.animate(checked: some_value)" here
 		// - if you want to alter state after finishing spinning
 		// (Yes -> spinning -> Yes) for example
 		checkmark.isSpinning = false
