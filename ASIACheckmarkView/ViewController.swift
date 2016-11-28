@@ -13,14 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var checkmark: ASIACheckmarkView!
 
     
-    @IBAction func changeState(sender: ASIACheckmarkView) {
-        sender.animateTo(!sender.boolValue)
+    @IBAction func changeState(_ sender: ASIACheckmarkView) {
+        sender.animate(checked:!sender.boolValue)
     }
 
     
-    @IBAction func changeStateWithSpinning(sender: ASIACheckmarkView) {
+    @IBAction func changeStateWithSpinning(_ sender: ASIACheckmarkView) {
         if !sender.isSpinning {
-            sender.animateTo(!sender.boolValue)
+            sender.animate(checked:!sender.boolValue)
             sender.isSpinning = true
         }
         else {
