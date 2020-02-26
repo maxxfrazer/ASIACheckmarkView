@@ -15,31 +15,31 @@ public typealias ASIACompletion = ()->()
 open class ASIACheckmarkView: UIButton {
     // MARK: - Inspectable Configuration
     /// Line color for checkmark checked
-    @IBInspectable open var lineColorForTrue : UIColor = UIColor.green
+    @IBInspectable open var lineColorForTrue: UIColor = UIColor.green
     /// Line color for checkmark unchecked
-    @IBInspectable open var lineColorForFalse : UIColor = UIColor.red
+    @IBInspectable open var lineColorForFalse: UIColor = UIColor.red
     /// Line width
-    @IBInspectable open var lineWidth : CGFloat = 1
+    @IBInspectable open var lineWidth: CGFloat = 1
     /// CHeckmark fill, where 0 is no checkmark, and 1 is checkmark connected with surrounding circle
-    @IBInspectable open var checkmarkFill : CGFloat = 0.8
+    @IBInspectable open var checkmarkFill: CGFloat = 0.8
     /// Fill of rect for false value - 0 means no rect, 1 means cross out of circle bounds
-    @IBInspectable open var crossFill : CGFloat = 0.4
+    @IBInspectable open var crossFill: CGFloat = 0.4
     /// Fill of the whole button rect - if 1, will try to cover whole area (cropped to center square).
-    @IBInspectable open var rectFill : CGFloat = 0.5
+    @IBInspectable open var rectFill: CGFloat = 0.5
     /// Checked for true, unchecked otherwise
-    @IBInspectable open var isGood : Bool = true
+    @IBInspectable open var isGood: Bool = true
     /// Determines if animation should pause and wait on "spinning" state
-    @IBInspectable open var isSpinning : Bool = false
+    @IBInspectable open var isSpinning: Bool = false
     /// How much circle percentage should spinner take in <0:1>
-    @IBInspectable open var spinnerPercentage : CGFloat = 0.25
+    @IBInspectable open var spinnerPercentage: CGFloat = 0.25
     /// Animation duration
-    @IBInspectable open var animationTotalTime : TimeInterval = 0.5
+    @IBInspectable open var animationTotalTime: TimeInterval = 0.5
     /// Spinning duration
-    @IBInspectable open var spinningFullDuration : CFTimeInterval = 0.8
+    @IBInspectable open var spinningFullDuration: CFTimeInterval = 0.8
     
     // MARK: - Public properties
     /// True for checked, false otherwise
-    open var boolValue : Bool {
+    open var boolValue: Bool {
         get { return self.isGood }
         set { self.isGood = newValue }
     }
@@ -49,22 +49,22 @@ open class ASIACheckmarkView: UIButton {
         set { self.isGood = newValue }
     }
     /// True if animating spinning, false otherwise
-    open var isAnimating : Bool { return self.animating }
+    open var isAnimating: Bool { return self.animating }
     
     // MARK: - Private properties
     /// Animation end closure completion
-    fileprivate var endAnimationCLosure : ASIACompletion?
-    fileprivate var checkmarkGoodLayer : CAShapeLayer?
+    fileprivate var endAnimationCLosure: ASIACompletion?
+    fileprivate var checkmarkGoodLayer: CAShapeLayer?
     fileprivate var checkmarkBadLayers = [CAShapeLayer]()
-    fileprivate var checkmarkCircleLayer : CAShapeLayer?
-    fileprivate var animating : Bool = false
-    fileprivate let checkmarkEnd : CGFloat = 0.265
-    fileprivate let startAngle : CGFloat = CGFloat(-M_PI_2)/CGFloat(2)
+    fileprivate var checkmarkCircleLayer: CAShapeLayer?
+    fileprivate var animating: Bool = false
+    fileprivate let checkmarkEnd: CGFloat = 0.265
+    fileprivate let startAngle: CGFloat = -.pi / 4
     
-    fileprivate var animationFirstStep : TimeInterval {
+    fileprivate var animationFirstStep: TimeInterval {
         return self.animationTotalTime * TimeInterval(self.checkmarkEnd)
     }
-    fileprivate var animationSeccondStep : TimeInterval {
+    fileprivate var animationSeccondStep: TimeInterval {
         return self.animationTotalTime - self.animationFirstStep
     }
     
@@ -118,13 +118,13 @@ open class ASIACheckmarkView: UIButton {
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = self.animationFirstStep
-        animation.timingFunction = CAMediaTimingFunction(name: "easeIn")
+        animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
         
         let animation2 = CABasicAnimation(keyPath: "strokeEnd")
         animation2.fromValue = self.checkmarkFill
         animation2.toValue = 1
         animation2.duration = self.animationFirstStep * 0.5
-        animation2.timingFunction = CAMediaTimingFunction(name: "easeIn")
+        animation2.timingFunction = CAMediaTimingFunction(name: .easeIn)
         
         self.checkmarkGoodLayer?.add(animation, forKey: animation.keyPath)
         self.checkmarkGoodLayer?.add(animation2, forKey: animation2.keyPath)
@@ -147,13 +147,13 @@ open class ASIACheckmarkView: UIButton {
             animation.fromValue = 1
             animation.toValue = 0
             animation.duration = self.animationFirstStep
-            animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
+            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
             
             let animation2 = CABasicAnimation(keyPath: "strokeEnd")
             animation2.fromValue = 1
             animation2.toValue = self.checkmarkFill
             animation2.duration = self.animationFirstStep
-            animation2.timingFunction = CAMediaTimingFunction(name: "easeOut")
+            animation2.timingFunction = CAMediaTimingFunction(name: .easeOut)
             
             self.checkmarkGoodLayer?.add(animation, forKey: animation.keyPath)
             self.checkmarkGoodLayer?.add(animation2, forKey: animation2.keyPath)
@@ -174,7 +174,7 @@ open class ASIACheckmarkView: UIButton {
         animation.fromValue = 0
         animation.toValue = 1 - self.spinnerPercentage
         animation.duration = duration
-        animation.timingFunction = CAMediaTimingFunction(name: "linear")
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)
         
         self.checkmarkCircleLayer?.add(animation, forKey: animation.keyPath)
         
@@ -228,11 +228,11 @@ open class ASIACheckmarkView: UIButton {
             }
             
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-            animation.toValue = 2 * M_PI
+            animation.toValue = 2 * Double.pi
             animation.duration = self.spinningFullDuration
             animation.isCumulative = true
             animation.isRemovedOnCompletion = false
-            animation.timingFunction = CAMediaTimingFunction(name: "linear")
+            animation.timingFunction = CAMediaTimingFunction(name: .linear)
             
             self.checkmarkCircleLayer?.add(animation, forKey: animation.keyPath)
             
@@ -257,7 +257,7 @@ open class ASIACheckmarkView: UIButton {
         self.checkmarkCircleLayer?.strokeStart = 0
         
         let fromColor = self.checkmarkCircleLayer?.strokeColor
-        let toColor = self.isGood ? self.lineColorForTrue.cgColor : self.lineColorForFalse.cgColor
+        let toColor = self.isGood ? self.lineColorForTrue.cgColor: self.lineColorForFalse.cgColor
         self.checkmarkCircleLayer?.strokeColor = toColor
         
         CATransaction.begin()
@@ -266,23 +266,23 @@ open class ASIACheckmarkView: UIButton {
         }
         
         let rotation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotation.toValue = 2 * M_PI
+        rotation.toValue = 2 * Double.pi
         rotation.duration = duration
         rotation.isCumulative = true
         rotation.isRemovedOnCompletion = false
-        rotation.timingFunction = CAMediaTimingFunction(name: "linear")
+        rotation.timingFunction = CAMediaTimingFunction(name: .linear)
         
         let animation = CABasicAnimation(keyPath: "strokeStart")
         animation.fromValue = 1 - self.spinnerPercentage
         animation.toValue = 0
         animation.duration = duration
-        animation.timingFunction = CAMediaTimingFunction(name: "linear")
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)
         
         let color = CABasicAnimation(keyPath: "strokeColor")
         color.fromValue = fromColor
         color.toValue = toColor
         color.duration = duration
-        color.timingFunction = CAMediaTimingFunction(name: "linear")
+        color.timingFunction = CAMediaTimingFunction(name: .linear)
         
         self.checkmarkCircleLayer?.add(animation, forKey: animation.keyPath)
         self.checkmarkCircleLayer?.add(rotation, forKey: rotation.keyPath)
@@ -328,16 +328,20 @@ open class ASIACheckmarkView: UIButton {
         path.move(to: startPoint)
         path.addLine(to: midPoint)
         
-        let halCircle : CGFloat = CGFloat(0)
+        let halCircle: CGFloat = 0
         
-        path.addArc(withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2), radius: radius, startAngle: startAngle, endAngle: startAngle + halCircle, clockwise: true)
+        path.addArc(
+            withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2),
+            radius: radius, startAngle: startAngle,
+            endAngle: startAngle + halCircle, clockwise: true
+        )
         
         self.checkmarkGoodLayer?.path = path.cgPath
         self.checkmarkGoodLayer?.lineWidth = self.lineWidth
         self.checkmarkGoodLayer?.strokeColor = self.lineColorForTrue.cgColor
         self.checkmarkGoodLayer?.backgroundColor = UIColor.clear.cgColor
         self.checkmarkGoodLayer?.fillColor = UIColor.clear.cgColor
-        self.checkmarkGoodLayer?.lineCap = kCALineCapRound
+        self.checkmarkGoodLayer?.lineCap = .round
         self.checkmarkGoodLayer?.strokeEnd = self.checkmarkFill
         
         self.layer.addSublayer(self.checkmarkGoodLayer!)
@@ -355,7 +359,10 @@ open class ASIACheckmarkView: UIButton {
         
         let startPoint = CGPoint(x: self.bounds.width/2, y: self.bounds.height/2)
         path.move(to: startPoint)
-        path.addLine(to: CGPoint(x: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2).x + radius * x, y: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2).y + radius * y))
+        path.addLine(to: CGPoint(
+            x: self.bounds.width / 2 + radius * x,
+            y: self.bounds.height / 2 + radius * y
+        ))
         
         badShapeLayer.path = path.cgPath
         badShapeLayer.lineWidth = self.lineWidth
@@ -365,7 +372,7 @@ open class ASIACheckmarkView: UIButton {
         
         badShapeLayer.strokeStart = 0
         badShapeLayer.strokeEnd = 1
-        badShapeLayer.lineCap = kCALineCapRound
+        badShapeLayer.lineCap = .round
         
         self.layer.addSublayer(badShapeLayer)
         self.checkmarkBadLayers.append(badShapeLayer)
@@ -374,25 +381,34 @@ open class ASIACheckmarkView: UIButton {
     fileprivate func addCheckmarkCircleLayer() {
         
         self.checkmarkCircleLayer?.removeFromSuperlayer()
-        self.checkmarkCircleLayer = CAShapeLayer()
-        self.checkmarkCircleLayer?.frame = self.bounds
+        let checkmarkCircleLayer = CAShapeLayer()
+        checkmarkCircleLayer.frame = self.bounds
         let pathFrame = self.bounds.insetBy(dx: self.lineWidth, dy: self.lineWidth)
         
         let radius = min(pathFrame.width,pathFrame.height) / 2 * self.rectFill
         let path = UIBezierPath()
         
-        let halCircle : CGFloat = CGFloat(M_PI)
-        path.addArc(withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2), radius: radius, startAngle: startAngle, endAngle: startAngle + halCircle, clockwise: true)
-        path.addArc(withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2), radius: radius, startAngle: startAngle + halCircle, endAngle: startAngle, clockwise: true)
+        let halCircle: CGFloat = .pi
+        path.addArc(
+            withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2),
+            radius: radius, startAngle: startAngle,
+            endAngle: startAngle + halCircle, clockwise: true
+        )
+        path.addArc(
+            withCenter: CGPoint(x: self.bounds.width/2, y: self.bounds.height/2),
+            radius: radius, startAngle: startAngle + halCircle,
+            endAngle: startAngle, clockwise: true
+        )
         
-        self.checkmarkCircleLayer?.path = path.cgPath
-        self.checkmarkCircleLayer?.lineWidth = self.lineWidth
-        self.checkmarkCircleLayer?.strokeColor = self.lineColorForFalse.cgColor
-        self.checkmarkCircleLayer?.backgroundColor = UIColor.clear.cgColor
-        self.checkmarkCircleLayer?.fillColor = UIColor.clear.cgColor
-        self.checkmarkCircleLayer?.lineCap = kCALineCapRound
+        checkmarkCircleLayer.path = path.cgPath
+        checkmarkCircleLayer.lineWidth = self.lineWidth
+        checkmarkCircleLayer.strokeColor = self.lineColorForFalse.cgColor
+        checkmarkCircleLayer.backgroundColor = UIColor.clear.cgColor
+        checkmarkCircleLayer.fillColor = UIColor.clear.cgColor
+        checkmarkCircleLayer.lineCap = .round
         
-        self.layer.addSublayer(self.checkmarkCircleLayer!)
+        self.layer.addSublayer(checkmarkCircleLayer)
+        self.checkmarkCircleLayer = checkmarkCircleLayer
     }
     
     fileprivate func addLayersIfNeeded(){
@@ -412,7 +428,9 @@ open class ASIACheckmarkView: UIButton {
         }
         if self.checkmarkCircleLayer == nil {
             self.addCheckmarkCircleLayer()
-            self.checkmarkCircleLayer?.strokeColor = self.isGood ? self.lineColorForTrue.cgColor : self.lineColorForFalse.cgColor
+            self.checkmarkCircleLayer?.strokeColor = self.isGood ?
+                self.lineColorForTrue.cgColor :
+                self.lineColorForFalse.cgColor
         }
     }
     
